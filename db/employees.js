@@ -18,5 +18,5 @@ export function getEmployees() {
 }
 
 export function getEmployee(index) {
-  return employees[index].name;
+  return employees[index];
 }

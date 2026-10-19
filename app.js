@@ -17,7 +17,14 @@ app.get("/employees", (req, res) => {
 });
 
 app.get("/employees/:id", (req, res) => {
-  
+  const { index } = req.params;
+  const data = getEmployee(index);
+
+  if (!data) {
+    return res.status(404).send("Index is invalid!");
+  }
+
+  res.send(data);
 });
 
 app.get("/employees/random", (req, res) => {});
