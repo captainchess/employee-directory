@@ -17,6 +17,6 @@ export function getEmployees() {
   return employees;
 }
 
-export function getEmployee(index) {
-  return employees[index];
+export function getEmployee(id) {
+  return employees[id];
 }

@@ -1,8 +1,6 @@
 import { getEmployee, getEmployees } from "#db/employees";
 import express from "express";
 
-import { getEmployees } from "#db/employees";
-
 const app = express();
 
 export default app;
@@ -17,8 +15,9 @@ app.get("/employees", (req, res) => {
 });
 
 app.get("/employees/:id", (req, res) => {
-  const { index } = req.params;
-  const data = getEmployee(index);
+  const { id } = req.params;
+  
+  const data = getEmployee(id - 1);
 
   if (!data) {
     return res.status(404).send("Index is invalid!");
