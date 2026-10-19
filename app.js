@@ -1,4 +1,4 @@
-import { getEmployee, getEmployees } from "#db/employees";
+import employees, { getEmployee, getEmployees } from "#db/employees";
 import express from "express";
 
 const app = express();
@@ -14,6 +14,12 @@ app.get("/employees", (req, res) => {
   res.send(data);
 });
 
+app.get("/employees/random", (req, res) => {
+    const id = Math.floor(Math.random() * employees.length);
+    const data = getEmployee(id);
+    res.send(data);
+});
+
 app.get("/employees/:id", (req, res) => {
   const { id } = req.params;
   
@@ -22,8 +28,6 @@ app.get("/employees/:id", (req, res) => {
   if (!data) {
     return res.status(404).send("Index is invalid!");
   }
-
+  
   res.send(data);
 });
-
-app.get("/employees/random", (req, res) => {});
