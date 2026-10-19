@@ -12,7 +12,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/employees", (req, res) => {
-  
+  const data = getEmployees();
+  res.send(data);
 });
 
 app.get("/employees/:id", (req, res) => {
