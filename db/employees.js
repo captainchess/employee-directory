@@ -12,3 +12,11 @@ const employees = [
 ];
 
 export default employees;
+
+export function getEmployees() {
+  return employees;
+}
+
+export function getEmployee(index) {
+  return employees[index].name;
+}
